@@ -133,7 +133,10 @@ ExecuteTriggerUrl = (url, trigger, message, room, tries=0) ->
 		data.trigger_word = word
 
 	sendMessage = (message) ->
-		user = RocketChat.models.Users.findOneByUsername(trigger.username)
+		if trigger.impersonateUser ? false
+			user = RocketChat.models.Users.findOneByUsername(data.user_name)
+		else
+			user = RocketChat.models.Users.findOneByUsername(trigger.username)
 
 		message.bot =
 			i: trigger._id

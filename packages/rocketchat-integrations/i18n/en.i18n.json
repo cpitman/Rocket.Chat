@@ -1,3 +1,4 @@
 {
-
+  "Impersonate_user": "Impersonate User",
+  "Impersonate_user_description": "When enabled, integration posts as the user that triggered integration" 
 }
