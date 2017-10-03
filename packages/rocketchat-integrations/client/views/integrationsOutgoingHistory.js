@@ -94,7 +94,12 @@ Template.integrationsOutgoingHistory.helpers({
 	},
 
 	jsonStringify(data) {
-		return data ? hljs.highlight('json', JSON.stringify(data, null, 2)).value : '';
+		if (data) {
+			data = _.isString(data) ? data : JSON.stringify(data, null, 2);
+			return hljs.highlight('json', data).value;
+		} else {
+			return '';
+		}
 	},
 
 	hljsStack(errorStack) {
