@@ -130,7 +130,7 @@ RocketChat.integrations.triggerHandler = new class RocketChatIntegrationHandler 
 		}
 
 		if (typeof httpResult !== 'undefined') {
-			history.httpResult = httpResult;
+			history.httpResult = JSON.stringify(httpResult);
 		}
 
 		if (typeof error !== 'undefined') {
